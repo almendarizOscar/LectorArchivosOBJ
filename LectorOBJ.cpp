@@ -1,12 +1,10 @@
-
 #include <iostream>
 #include "LectorOBJ.h"
 #include "Objeto.h"
 #include <vector>
 #include <stdlib.h>
 
-Lector::Lector(ifstream* arch)
-{
+Lector::Lector(ifstream* arch){
     this->arch = arch;
 }
 vector<Objeto*> Lector::getListObjetos (){
@@ -20,8 +18,7 @@ void Lector::leerArchivo(){
     char c; //caracter
     string s;           
     *arch >> c;
-    do{
-        
+    do{       
         if (c == '#'){ //si se encuentra un comentario
              do{
                  c = arch->get();
@@ -110,3 +107,6 @@ void Lector::imprimeDatos(){
     }
 }
 
+void Lector::calculaAristas(Cara* cara){
+
+}

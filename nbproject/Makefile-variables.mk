@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=lectorobj
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/lectorobj
+CND_ARTIFACT_NAME_Debug=lectorarchivosobj
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/lectorarchivosobj
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=lectorobj.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/lectorobj.tar
+CND_PACKAGE_NAME_Debug=lectorarchivosobj.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/lectorarchivosobj.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=lectorobj
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/lectorobj
+CND_ARTIFACT_NAME_Release=lectorarchivosobj
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/lectorarchivosobj
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=lectorobj.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/lectorobj.tar
+CND_PACKAGE_NAME_Release=lectorarchivosobj.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/lectorarchivosobj.tar
 #
 # include compiler specific variables
 #

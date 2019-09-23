@@ -10,8 +10,11 @@ class Objeto{
     private:
         string s;
         string nombre; //identifacor del objeto
+        
         vector<Vertice*> vertice; //vertices de la fgura
         vector<Cara*> cara; //caras de la figura
+        vector<Arista*> arista; //aristas de la figura
+        
     public:
         Objeto(string nombre);
         string getNombre();
@@ -27,6 +30,7 @@ class Objeto{
         
         vector<Vertice*> getVertices();
         vector<Cara*> getCaras();
+        vector<Arista*> getAristas(){return arista;}
 };
 #endif /* OBJETO_H */
 

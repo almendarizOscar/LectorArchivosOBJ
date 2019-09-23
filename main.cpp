@@ -2,13 +2,16 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
+
 #include <fstream>
 #include <iostream>
 #include "LectorOBJ.h"
 #include "Frame.h"
 using namespace std;
 //Variable globla que gurda al lector
-Lector* lec;
+Lector* lec; //Lector de archivos obj
+vector<Objeto*> objeto; //lista de objetos contenidos en el archivo       
+vector<Vertice*> vertice; // todos los vertices del archivo
 
 static void drawObjeto (){
     //Primero, recorremos la lista de objetos        

@@ -86,12 +86,10 @@ void Lector::imprimeDatos(){
         cout << "o   " << (*it)->getNombre() << endl;      
         //Recorrer la lista de vertices del objeto                                                         
        
-        for (int i = 0; i < (*it)->getVertices().size(); i++){               
-            
+        for (int i = 0; i < (*it)->getVertices().size(); i++){                           
             cout << "v   " << ((*it)->getVertices())[i]->getX()  << "   " 
                            << ((*it)->getVertices())[i]->getY()  << "   " 
-                           << ((*it)->getVertices())[i]->getZ()  << endl;                        
-                      
+                           << ((*it)->getVertices())[i]->getZ()  << endl;                                              
         }
                 
         for (int i = 0; i < (*it)->getCaras().size(); i++ ){ //recorremos cada vertice            

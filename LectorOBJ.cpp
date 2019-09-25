@@ -106,7 +106,7 @@ void Lector::imprimeDatos(){
         //Impresion de las aristas del objeto
         
         for (int i=0; i< (*it)->getAristas().size(); i++)     
-            cout<<"E"<< ((*it)->getAristas())[i]->getId() <<"   "<<"{"<<  ((*it)->getAristas())[i]->getV1()->getId() << ", " <<  ((*it)->getAristas())[i]->getV2()->getId() << "}"<< endl;
+            cout<<"e"<< ((*it)->getAristas())[i]->getId() <<"   "<<"{"<<  ((*it)->getAristas())[i]->getV1()->getId() << ", " <<  ((*it)->getAristas())[i]->getV2()->getId() << "}"<< endl;
         
         
         cout << endl << endl << endl;
@@ -133,24 +133,24 @@ void Lector::obtenAristas(){
                 //hacemos los enlacas de los vertices                
                 if (k==0){
                     //Se crea una arista desde el primer vertice de la lista con el ultimo                                             
-                    Arista* arista2 = new Arista (vertice[cara->getVertiCara(k)-1],  vertice[cara->getVertiCara(cara->getVertice().size()-1)-1]);                                        
-                    arista2->setId(++id_arista); //Se le agrega un identificador a la arista
+                    if (!(objeto[i]->yaExisteLaArista(vertice[cara->getVertiCara(k)-1],  vertice[cara->getVertiCara(cara->getVertice().size()-1)-1]))){//Verificar que no exista la arista
+                        Arista* arista2 = new Arista (vertice[cara->getVertiCara(k)-1],  vertice[cara->getVertiCara(cara->getVertice().size()-1)-1]);                                        
+
+                        arista2->setId(++id_arista); //Se le agrega un identificador a la arista                   
+                        //Agregar las aristas a la lista de arista del objeto
+                        objeto[i]->setArista(arista2);
+                    }
                     
-                    //Agregar las aristas a la lista de arista del objeto
-                    cout<<"E"<< arista2->getId()<<"   "<<"{"<< arista2->getV1()->getId() << ", " <<   arista2->getV2()->getId() << "}"<< endl;
-                    objeto[i]->setArista(arista2);
                 }
-                
-                Arista* arista1 = new Arista (vertice[cara->getVertiCara(k)-1], vertice[cara->getVertiCara(k+1)-1]);
-                arista1->setId(++id_arista);
-                //Agregar las aristas a la lista de arista del objeto
-                cout<<"E"<< arista1->getId() <<"   "<<"{"<<  arista1->getV1()->getId() << ", " << arista1->getV2()->getId() << "}"<< endl;
-                objeto[i]->setArista(arista1);                
+                if (!(objeto[i]->yaExisteLaArista(vertice[cara->getVertiCara(k)-1], vertice[cara->getVertiCara(k+1)-1]))){//Verificar que no exista la arista                    
+                    Arista* arista1 = new Arista (vertice[cara->getVertiCara(k)-1], vertice[cara->getVertiCara(k+1)-1]);
+                    arista1->setId(++id_arista);
+                    //Agregar las aristas a la lista de arista del objeto
+                    objeto[i]->setArista(arista1);                
+                }
                 
             }
             
         }                
-        cout << "Aristas total:  " << objeto[i]->getAristas().size()<< endl;  
-
     }
 }

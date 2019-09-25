@@ -27,6 +27,8 @@ class Objeto{
         vector<Vertice*> getVertices();
         vector<Cara*> getCaras();
         vector<Arista*> getAristas(){ return arista;}
+        
+        bool yaExisteLaArista (Vertice* v1, Vertice* v2);
 };
 #endif /* OBJETO_H */
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "LectorOBJ.h"
 #include "Objeto.h"
+#include "Cara.h"
 #include <vector>
 #include <stdlib.h>
 
@@ -52,6 +53,7 @@ void Lector::leerArchivo(){
         }                           
         
     }while (!arch->eof()); //mientras no sea el final del archivo    
+    obtenAristas(); //Une vez que se tiene los objetos se determinan las aristas de cada uno
 }
 
 Cara* Lector::leeCara(char* c){   
@@ -77,21 +79,21 @@ Vertice* Lector::leeVertice(int* idVert){
     return vertice;
 }
 
-//imprime los objetos almacenados
+//imprime vertices, caras y aristas de un objeto
 void Lector::imprimeDatos(){
     //Recorrer la lista de objetos
     vector<Objeto*>::iterator it = objeto.begin();
     
     while (it != objeto.end()){ //recorrer los objetos        
         cout << "o   " << (*it)->getNombre() << endl;      
-        //Recorrer la lista de vertices del objeto                                                         
-       
+        //Impresion de los vertices del objeto                                                                
         for (int i = 0; i < (*it)->getVertices().size(); i++){                           
             cout << "v   " << ((*it)->getVertices())[i]->getX()  << "   " 
                            << ((*it)->getVertices())[i]->getY()  << "   " 
                            << ((*it)->getVertices())[i]->getZ()  << endl;                                              
         }
                 
+        //Impresion de las caras de los objetos
         for (int i = 0; i < (*it)->getCaras().size(); i++ ){ //recorremos cada vertice            
             cout << "f   ";                       
             vector <string> vs =  ((*it)->getCaras())[i]->getVertice();  //vector de strings
@@ -100,7 +102,55 @@ void Lector::imprimeDatos(){
             cout << endl; 
            
         }
+        
+        //Impresion de las aristas del objeto
+        
+        for (int i=0; i< (*it)->getAristas().size(); i++)     
+            cout<<"E"<< ((*it)->getAristas())[i]->getId() <<"   "<<"{"<<  ((*it)->getAristas())[i]->getV1()->getId() << ", " <<  ((*it)->getAristas())[i]->getV2()->getId() << "}"<< endl;
+        
+        
         cout << endl << endl << endl;
         it++ ;
+        //Fin del objeto
+    }
+}
+//Funcion encargada de deducir las aristas de un objetoa partir de la lista de caras 
+void Lector::obtenAristas(){
+    //Recorremos la lista de objetos
+    for (int i=0; i<objeto.size(); i++){        
+        int id_arista = 0;
+        
+        //Recorremos la lista de caras de cada objeto para formar las aristas        
+        for (int j=0; j<objeto[i]->getCaras().size(); j++){
+            
+          
+            Cara* cara = (objeto[i]->getCaras())[j]; //Cara
+            //Recorremos la lista de vertices de la cara
+            
+            for (int k=0; k<cara->getVertice().size()-1; k++){   
+                
+                
+                //hacemos los enlacas de los vertices                
+                if (k==0){
+                    //Se crea una arista desde el primer vertice de la lista con el ultimo                                             
+                    Arista* arista2 = new Arista (vertice[cara->getVertiCara(k)-1],  vertice[cara->getVertiCara(cara->getVertice().size()-1)-1]);                                        
+                    arista2->setId(++id_arista); //Se le agrega un identificador a la arista
+                    
+                    //Agregar las aristas a la lista de arista del objeto
+                    cout<<"E"<< arista2->getId()<<"   "<<"{"<< arista2->getV1()->getId() << ", " <<   arista2->getV2()->getId() << "}"<< endl;
+                    objeto[i]->setArista(arista2);
+                }
+                
+                Arista* arista1 = new Arista (vertice[cara->getVertiCara(k)-1], vertice[cara->getVertiCara(k+1)-1]);
+                arista1->setId(++id_arista);
+                //Agregar las aristas a la lista de arista del objeto
+                cout<<"E"<< arista1->getId() <<"   "<<"{"<<  arista1->getV1()->getId() << ", " << arista1->getV2()->getId() << "}"<< endl;
+                objeto[i]->setArista(arista1);                
+                
+            }
+            
+        }                
+        cout << "Aristas total:  " << objeto[i]->getAristas().size()<< endl;  
+
     }
 }

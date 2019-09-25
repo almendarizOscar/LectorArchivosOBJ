@@ -7,11 +7,12 @@
 using namespace std;
 class Cara{
     private:       
-        vector<string> vertice; //vertices de la cara                
+        vector<string> vertice; //lista de index de los vertices que conforman la cara
+        
     public:
         Cara();
         void setVertice (string v){ vertice.push_back(v); }
-        vector<string> getVertice();        
+        vector<string> getVertice(){ return vertice;} 
         int getVertiCara (int i);
 };
 

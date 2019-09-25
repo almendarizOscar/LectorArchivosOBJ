@@ -5,14 +5,7 @@
 #include <sstream>
 using namespace std;
 
-Cara::Cara (){
-    
-}
-
-vector<string> Cara::getVertice(){
-    return vertice;
-}
-
+Cara::Cara(){}
 int Cara::getVertiCara (int i){
     int n;
     stringstream geek(vertice[i]);    

@@ -55,15 +55,20 @@ int main(int argc, char** argv) {
         cout << "Error al intentar abrir el archivo"<< endl;
         return 1;
     }    
-    
+    /*Lectura del archivo obj***********************************/
     cout << "Nombre del archivo:  " << argv[1] << endl;    
     Lector* lector = new Lector (&arch); //Se crea un lector obj
     lector->leerArchivo();
-    arch.close(); //cerramos el archivo obj
+    lector->imprimeDatos(); //Imprime los datos leidos del archivo
     //Obtenemos las lista de objetos y la lista de vertices                
     objeto = lector->getListObjetos();
-    vertice = lector->getListVertices();
+    vertice = lector->getListVertices();    
+    
+    
+    arch.close(); //cerramos el archivo obj
     delete lector;  //Liberamos el lector de la memoria
+    /***********************************************************/
+    
     
     if( !glfwInit() ){
         fprintf( stderr, "Fallo al inicializar GLFW\n" );

@@ -19,6 +19,7 @@ class Vertice{
         void setX(string x);
         void setY(string y);
         void setZ(string z);
+        int getId (){ return idVertice;} 
         
 };
 

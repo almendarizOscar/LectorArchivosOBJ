@@ -19,18 +19,14 @@ class Objeto{
         Objeto(string nombre);
         string getNombre();
         void setS(string s);
-        string getS();
+        string getS();        
         
-        void setVertice (Vertice* v){
-            vertice.push_back(v);
-        }
-        void setCara(Cara* c){
-            cara.push_back(c);
-        }
-        
+        void setVertice (Vertice* v){ vertice.push_back(v);}       
+        void setCara(Cara* c){   cara.push_back(c); }
+        void setArista (Arista* aris){ arista.push_back(aris);}
         vector<Vertice*> getVertices();
         vector<Cara*> getCaras();
-        vector<Arista*> getAristas(){return arista;}
+        vector<Arista*> getAristas(){ return arista;}
 };
 #endif /* OBJETO_H */
 

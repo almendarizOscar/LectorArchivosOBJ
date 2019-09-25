@@ -1,7 +1,7 @@
 #include <vector>
 #include "Cara.h"
 #include "Vertice.h"
-#
+#include "Arista.h"
 #ifndef OBJETO_H
 #define OBJETO_H
 

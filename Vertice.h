@@ -1,3 +1,5 @@
+#include <fstream>
+#include <iostream>
 #include <list>
 #ifndef VERTICE_H
 #define VERTICE_H

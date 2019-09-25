@@ -104,7 +104,3 @@ void Lector::imprimeDatos(){
         it++ ;
     }
 }
-
-void Lector::calculaAristas(Cara* cara){
-
-}

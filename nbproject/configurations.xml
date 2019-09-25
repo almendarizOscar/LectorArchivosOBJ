@@ -45,6 +45,19 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>/usr/include/GL</pElem>
+            <pElem>/usr/include/GLFW</pElem>
+          </linkerAddLib>
+          <linkerDynSerch>
+            <pElem>/usr/include/GL</pElem>
+            <pElem>/usr/include/GLFW</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerOptionItem>-lglfw -lGLU -lGL</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="Arista.cpp" ex="false" tool="1" flavor2="0">
       </item>

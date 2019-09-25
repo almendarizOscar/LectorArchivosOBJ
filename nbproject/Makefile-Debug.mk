@@ -57,7 +57,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L/usr/include/GL -L/usr/include/GLFW -Wl,-rpath,'/usr/include/GL' -Wl,-rpath,'/usr/include/GLFW' -lglfw -lGLU -lGL
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
